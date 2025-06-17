@@ -8,14 +8,6 @@ A robust, high-performance backend API for social media applications built with 
 - **User Management**: Registration, login, profile management, and user relationships
 - **Post Management**: Create, read, update, delete posts with media support
 - **Social Interactions**: Like, comment, share, and bookmark functionality
-- **Follow System**: Follow/unfollow users with follower/following lists
-- **Real-time Features**: WebSocket support for live notifications and messaging
-- **Media Handling**: Image and video upload with cloud storage integration
-- **Feed Algorithm**: Personalized timeline and discovery feeds
-- **Search & Discovery**: Advanced search for users, posts, and hashtags
-- **Analytics**: User engagement metrics and content analytics
-- **Rate Limiting**: API rate limiting for security and performance
-- **Comprehensive API Documentation**: Auto-generated OpenAPI documentation
 
 ## 🛠️ Tech Stack
 
@@ -23,11 +15,6 @@ A robust, high-performance backend API for social media applications built with 
 - **Language**: Python 3.8+
 - **Database**: PostgreSQL with SQLAlchemy ORM
 - **Authentication**: JWT tokens with bcrypt password hashing
-- **File Storage**: AWS S3 / CloudStorage
-- **Caching**: Redis for session management and caching
-- **Documentation**: Automatic OpenAPI/Swagger documentation
-- **Testing**: Pytest with comprehensive test coverage
-- **Deployment**: Docker containerization ready
 
 ## 📋 Prerequisites
 
@@ -35,7 +22,6 @@ Before running this application, make sure you have the following installed:
 
 - Python 3.8 or higher
 - PostgreSQL
-- Redis (optional, for caching)
 - pip or pipenv for package management
 
 ## 🔧 Installation
@@ -88,7 +74,6 @@ Once the server is running, you can access:
 
 - **Interactive API Documentation (Swagger UI)**: http://localhost:8000/docs
 - **Alternative API Documentation (ReDoc)**: http://localhost:8000/redoc
-- **OpenAPI JSON Schema**: http://localhost:8000/openapi.json
 
 ## 🌐 API Endpoints
 
@@ -102,10 +87,7 @@ Once the server is running, you can access:
 - `GET /users/me` - Get current user profile
 - `PUT /users/me` - Update current user profile
 - `GET /users/{user_id}` - Get user profile by ID
-- `POST /users/{user_id}/follow` - Follow a user
-- `DELETE /users/{user_id}/follow` - Unfollow a user
-- `GET /users/{user_id}/followers` - Get user followers
-- `GET /users/{user_id}/following` - Get users being followed
+
 
 ### Posts
 - `GET /posts` - Get all posts (with pagination)
@@ -113,53 +95,7 @@ Once the server is running, you can access:
 - `GET /posts/{post_id}` - Get specific post
 - `PUT /posts/{post_id}` - Update post
 - `DELETE /posts/{post_id}` - Delete post
-- `POST /posts/{post_id}/like` - Like a post
-- `DELETE /posts/{post_id}/like` - Unlike a post
-- `GET /posts/{post_id}/comments` - Get post comments
-- `POST /posts/{post_id}/comments` - Add comment to post
 
-### Feed
-- `GET /feed/timeline` - Get personalized timeline
-- `GET /feed/discover` - Get discover feed
-- `GET /feed/trending` - Get trending posts
-
-### Media
-- `POST /media/upload` - Upload media files
-- `GET /media/{media_id}` - Get media file
-
-### Search
-- `GET /search/users` - Search users
-- `GET /search/posts` - Search posts
-- `GET /search/hashtags` - Search hashtags
-
-## 🐳 Docker Deployment
-
-1. **Build the Docker image**
-   ```bash
-   docker build -t fastapi-social-media .
-   ```
-
-2. **Run with Docker Compose**
-   ```bash
-   docker-compose up -d
-   ```
-
-This will start the FastAPI application along with PostgreSQL and Redis services.
-
-## 🧪 Testing
-
-Run the test suite:
-
-```bash
-# Run all tests
-pytest
-
-# Run with coverage
-pytest --cov=app --cov-report=html
-
-# Run specific test file
-pytest tests/test_users.py
-```
 
 ## 📊 Database Schema
 
@@ -169,9 +105,6 @@ The application uses the following main models:
 - **Post**: User posts and content
 - **Comment**: Comments on posts
 - **Like**: Post and comment likes
-- **Follow**: User follow relationships
-- **Media**: File attachments and media
-- **Notification**: User notifications
 
 ## 🔒 Security Features
 
@@ -181,15 +114,12 @@ The application uses the following main models:
 - Input validation and sanitization
 - CORS configuration
 - SQL injection prevention through ORM
-- XSS protection
 
 ## 🚀 Performance Optimizations
 
 - Database query optimization with proper indexing
-- Redis caching for frequently accessed data
 - Asynchronous request handling
 - Connection pooling
-- Image compression and optimization
 - Pagination for large datasets
 
 ## 📈 Monitoring & Logging
